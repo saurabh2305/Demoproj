@@ -1,0 +1,30 @@
+<p>
+    employee-details works!
+
+</p>
+<a routerLink="" routerLinkActive="active">Go To Home Page</a>
+
+<table class="table table-bordered">
+    <tr class="active">
+        <th>
+            Id
+        </th>
+        <th>
+            User Id
+        </th>
+        <th>
+            Title
+        </th>
+    </tr>
+    <tr class="active" *ngFor="let empObj of userArray">
+        <td>
+            <span>{{empObj.id}}</span>
+        </td>
+        <td>
+            <span>{{empObj.userId}}</span>
+        </td>
+        <td>
+            <span>{{empObj.title}}</span>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,54 @@
+<div style="background-color: bisque">
+
+<h1>
+    {{title}}
+
+</h1>
+
+<a routerLink="" routerLinkActive="active">Go To Home Page</a>
+<!--<input type="button" class="btn btn-warning" (click)="NavigteEmployeeDetails()" value="Go to Employee Detail">-->
+<!-- <app-child (messageToEmit)="getMessage($event)"></app-child>  -->
+
+<div>
+    <button (click)="funEventFire()" value="Hide Parent link" type="submit"> Hide Parent </button>
+    
+</div>
+
+<div class="container">
+
+    <table class="table table-bordered">
+        <tr class="active">
+            <th>
+                 Id
+            </th>
+            <th>
+                User ID
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Edit
+            </th>
+        </tr>
+        <tr class="active" *ngFor="let emp of userArray  | paginate: {itemsPerPage:4,currentPage:p}">
+            <td>
+                <span>{{emp.id}}</span>
+            </td>
+            <td>
+                <span>{{emp.userId}} </span>
+            </td>
+            <td>
+                <span>{{emp.title}} </span>
+            </td>
+            <td>
+                <input type="button" value="Edit" (click)="EditEmployee(emp.id)" class="btn-link" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <pagination-controls  maxSize="5" directionLinks="true" (pageChange)="p = $event"></pagination-controls>
+</div>
+
+</div>

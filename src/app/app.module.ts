@@ -1,16 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { EmpDetailsComponent } from './emp-details/emp-details.component';
+import { EmpListComponent } from './emp-list/emp-list.component';
+import { CommonComponent } from './common/common.component';
+import { EmployeeService } from './employee.service';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
+const appRoute: Routes = [
+  { path: 'EmployeeList/:isListPage', component: EmpListComponent },
+  { path: 'ShowEmployeeDetails/:empID', component: EmpDetailsComponent },
+  { path: '', redirectTo: '', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmpDetailsComponent,
+    EmpListComponent,
+    CommonComponent,  
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    RouterModule.forRoot(appRoute)
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

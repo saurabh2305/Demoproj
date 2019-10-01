@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo-proj';
+
+  isDisabled : boolean ;
+
+  onActivate(event){
+    debugger
+console.log('Thsi is : '+event);
+  }
 }
