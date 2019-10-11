@@ -1,0 +1,56 @@
+
+<p>add-employee works!</p>
+<form>
+<div class="form-group">
+<table>
+    <tr>
+        <td>
+            Employee Name:
+        </td>
+        <td>
+            <input type="text"  minlength="4"   maxlength="20"  required [(ngModel)]="EmployeName" name ="empname" 
+            #empname="ngModel"   class="form-control">
+             <div [hidden]="empname.valid || empname.pristine" class="alert alert-danger">
+                     Employee name is required
+             </div>
+        </td>
+    </tr>
+    <tr>
+            <td>
+                    Employee Age:
+            </td>
+            <td>
+                <input type="text" required [(ngModel)]="EmployeAge" name ="empage"  ngModel pattern = "^[0-9]*" ng-model="inputNumber" #empage="ngModel" class="form-control">
+                <div [hidden]="empage.valid || empage.pristine" class="alert alert-danger" digitonly>
+                     Age should be a number
+                </div>
+            </td>
+    </tr>
+    <tr>
+            <td>
+                    Employee Salary:
+            </td>
+            <td>
+                <input type="text" required [(ngModel)]="EmployeeSalary" name ="empsalary" ngModel pattern = "^[0-9]*" #empsalary="ngModel" class="form-control">
+                    <div [hidden]="empsalary.valid || empsalary.pristine" class="alert alert-danger">
+                       Salary is required in digits
+                    </div>
+            </td>
+    </tr>
+    <tr>
+            <td>
+                    Employee Address:
+            </td>
+            <td>
+                <input type="text" required [(ngModel)]="EmployeeAddress" name ="empaddress" #empaddress="ngModel" class="form-control">
+                <div [hidden]="empaddress.valid || empaddress.pristine" class="alert alert-danger">
+                    Address is required
+                </div>
+            </td>
+    </tr>
+    <tr>
+        <button (click)= "SaveEmployee()" class="btn btn-success"> Save Employee </button>
+    </tr>
+</table>
+</div>
+</form>

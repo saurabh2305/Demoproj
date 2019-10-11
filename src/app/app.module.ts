@@ -9,11 +9,13 @@ import { EmpListComponent } from './emp-list/emp-list.component';
 import { CommonComponent } from './common/common.component';
 import { EmployeeService } from './employee.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AddEmployeeComponent } from './AddNewEmployee/add-employee/add-employee.component';
 
 
 const appRoute: Routes = [
   { path: 'EmployeeList/:isListPage', component: EmpListComponent },
   { path: 'ShowEmployeeDetails/:empID', component: EmpDetailsComponent },
+  { path: 'AddEmployeeDetails', component:  AddEmployeeComponent},
   { path: '', redirectTo: '', pathMatch: 'full'}
 ];
 
@@ -22,7 +24,8 @@ const appRoute: Routes = [
     AppComponent,
     EmpDetailsComponent,
     EmpListComponent,
-    CommonComponent,  
+    CommonComponent,
+    AddEmployeeComponent,  
   ],
   imports: [
     BrowserModule,
